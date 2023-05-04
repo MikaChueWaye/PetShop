@@ -7,6 +7,7 @@ namespace PetShopApp
 {
     public abstract class Animal
     {
+        //test
         public static Random RAND = new Random();
 
         public enum AnimalRace 
@@ -45,7 +46,7 @@ namespace PetShopApp
             _age = pAge;
             _qtteNourriture = pQtteNourriture;
         }
-
+        
         public Animal(string pNom)
         {
             _nom = pNom;
