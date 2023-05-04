@@ -1,19 +1,11 @@
 namespace PetShopApp
 {
-    public class Mygale : Arachne
+    public class Mygale : VenomousArachnid
     {
-        public Mygale(string pNom, float pPoids, int pAge, float pQtteNourriture): base(pNom, pPoids, pAge, pQtteNourriture)
+        public Mygale(string pNom) : base(pNom)
         {
-            _regimeAlimentaire = Animal.FoodType.Insectes;
         }
 
-        public Mygale(string pNom):base(pNom)
-        {
-            _nom = pNom;
-        }
-
-        public override TypeMorsure Mordre() => Animal.TypeMorsure.Morsure_venimeuse;
-
-        public override string Talk => ". . .";
+        public override FoodType RegimeAlimentaire => FoodType.Criquet | FoodType.Papillon;
     }
 }

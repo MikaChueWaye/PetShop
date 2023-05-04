@@ -1,11 +1,10 @@
 ﻿using System;
-using static PetShopApp.Animal;
 
 namespace PetShopApp
 {
     public static class Names
     {
-        static Random RAND = new Random();
+        private static Random RAND = new Random();
 
         public static string[] RANDOM_NAMES =
         {
@@ -38,10 +37,15 @@ namespace PetShopApp
         };
 
         public static string RandomName() => RANDOM_NAMES[RAND.Next(RANDOM_NAMES.Length)];
+
         public static string RandomArachnidName() => ARACHNID_NAMES[RAND.Next(ARACHNID_NAMES.Length)];
+
         public static string RandomCanineName() => CANINE_NAMES[RAND.Next(CANINE_NAMES.Length)];
+
         public static string RandomFelineName() => FELINE_NAMES[RAND.Next(FELINE_NAMES.Length)];
+
         public static string RandomFishName() => FISH_NAMES[RAND.Next(FISH_NAMES.Length)];
+
         public static string RandomReptileName() => REPTILE_NAMES[RAND.Next(REPTILE_NAMES.Length)];
     }
 }
