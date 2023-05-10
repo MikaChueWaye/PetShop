@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PetShopApp
 {
-    public class Lezard : Reptile
+    public class Lezard : NonVenomousReptile
     {
         public Lezard(string pNom) : base(pNom)
         {

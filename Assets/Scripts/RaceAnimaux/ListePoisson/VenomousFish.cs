@@ -4,10 +4,10 @@ using static Venom;
 namespace PetShopApp
 
 {
-    public abstract class VenomousArachnid : Arachne, IVenomous
+    public abstract class VenomousFish : Poisson, IVenomous
     {
 
-        public VenomousArachnid(string pNom):base(pNom)
+        public VenomousFish(string pNom):base(pNom)
         {
         }
 

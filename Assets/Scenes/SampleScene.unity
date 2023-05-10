@@ -244,6 +244,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c55d10adbcf84c4589a65ff62a4930d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nbMygales: 10
+  _nbVeuveNoires: 10
+  _nbChiens: 10
+  _nbChats: 10
+  _nbTigres: 10
+  _nbScorpions: 10
+  _nbPoissonRouges: 10
+  _nbPoissonGlobes: 10
+  _nbLezards: 10
+  _nbViperes: 10
+  _nbCobraRoyal: 10
+  _nbTortues: 10
 --- !u!4 &1799144999
 Transform:
   m_ObjectHideFlags: 0

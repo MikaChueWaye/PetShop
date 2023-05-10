@@ -2,9 +2,9 @@ namespace PetShopApp
 {
     public abstract class Poisson : Animal
     {
-        public override float QtteMaxNourriture => 20;
+        public override float QtteMaxNourriturePredefini => 200;
         public override int AgeMax => 5;
-        public override float PoidsMax => 0.5f;
+        public override float PoidsMax => 5;
         public override AnimalRace Race => AnimalRace.Poisson;
         public Poisson(string pNom) : base(pNom)
         {

@@ -21,6 +21,11 @@ namespace PetShopApp
             "Simba", "Luna", "Smokey", "Tiger", "Oliver", "Salem", "Felix", "Shadow", "Whiskers", "Sooty", "Misty", "Marmalade", "Cleo", "Ginger", "Midnight", "Boots", "Garfield", "Jasper", "Leo", "Cali", "Loki", "Marble", "Milo", "Mittens", "Nala", "Oscar", "Patches", "Pepper", "Pumpkin", "Rascal", "Sabrina", "Sam", "Sasha", "Socks", "Tuxedo", "Willow", "Ziggy", "Zorro", "Chloe", "Kitty", "Buddy", "Muffin", "Angel", "Callie", "Charlie", "Izzy", "Fluffy", "Snickers", "Sunny", "Cinnamon", "Cosmo", "Dusty", "Echo", "Gatsby", "Kiki", "Mango", "Merlin", "Sage", "Suki", "Tigger", "Toulouse", "Truffle", "Violet", "Winnie", "Zelda", "Zoe", "Cupcake", "Peaches", "Roo", "Simone", "Tootsie", "Vixen", "Xena", "Yara", "Zara", "Apollo", "Archie", "Benny", "Binx", "Boo", "Caspian", "Chase", "Cooper", "Dante", "Dexter", "Finn", "Gizmo", "Hank", "Jinx", "Koda", "Lenny", "Loki", "Louie", "Max", "Milo", "Monty", "Nacho", "Odin", "Oreo", "Poe", "Romeo", "Salem", "Scout", "Sebastian", "Stella", "Toby", "Yoda", "Ziggy"
         };
 
+        public static string[] INSECT_NAMES =
+        {
+            "Zephyrino", "Elytria", "Coccinellus", "Morphopus", "Papilliona", "Scarabaeus", "Libellula", "Apidastra", "Phasmara", "Hymenoptera", "Gryllus", "Mantodea", "Nycterinus", "Coleopteron", "Formicidae"
+        };
+
         public static string[] FISH_NAMES =
         {
             "Nemo", "Dory", "Marlin", "Bubbles", "Gill", "Peach", "Jacques", "Flounder", "Sebastian", "Scuttle", "Ursula", "Ariel", "Bloat", "Bubbles", "Chum", "Deb", "Flo", "Gurgle", "Nigel", "Bruce", "Anchor", "Hank", "Bailey", "Destiny", "Charlie", "Jenny", "Becky", "Hank", "Gerald", "Kathy", "Barbara", "Gilly", "Lenny", "Carl", "Frank", "Sheldon", "Pearl", "Tad", "Sheldon Jr.", "Mr. Ray", "Crush", "Squirt", "Pearl", "Finley", "Fishlegs", "Dagur", "Barf", "Belch", "Meatlug", "Stormfly", "Hookfang", "Toothless", "Terrible Terror", "Scauldron", "Seashocker", "Thunderdrum", "Smolder", "Rumblehorn", "Gronckle", "Night Fury", "Light Fury", "Wavewalker", "Piranha", "Barracuda", "Swordfish", "Tuna", "Shark", "Clownfish", "Angelfish", "Goldfish", "Catfish", "Jellyfish", "Octopus", "Squid", "Starfish", "Crab", "Lobster", "Oyster", "Shrimp", "Sea Urchin", "Seahorse", "Whale Shark", "Manta Ray", "Stingray", "Electric Eel", "Lionfish", "Pufferfish", "Clam", "Nautilus", "Anemone", "Coral", "Sponge"
@@ -43,6 +48,8 @@ namespace PetShopApp
         public static string RandomCanineName() => CANINE_NAMES[RAND.Next(CANINE_NAMES.Length)];
 
         public static string RandomFelineName() => FELINE_NAMES[RAND.Next(FELINE_NAMES.Length)];
+
+        public static string RandomInsectName() => INSECT_NAMES[RAND.Next(INSECT_NAMES.Length)];
 
         public static string RandomFishName() => FISH_NAMES[RAND.Next(FISH_NAMES.Length)];
 

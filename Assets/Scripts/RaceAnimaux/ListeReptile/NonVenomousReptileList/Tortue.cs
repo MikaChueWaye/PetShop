@@ -1,6 +1,6 @@
 namespace PetShopApp
 {
-    public class Tortue : Reptile
+    public class Tortue : NonVenomousReptile
     {
         public Tortue(string pNom) : base(pNom)
         {
