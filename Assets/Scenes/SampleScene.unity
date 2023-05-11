@@ -256,6 +256,21 @@ MonoBehaviour:
   _nbViperes: 10
   _nbCobraRoyal: 10
   _nbTortues: 10
+  _mygaleDatas:
+  - {fileID: 11400000, guid: 35de9f0da12dfe745b4b281e082527aa, type: 2}
+  - {fileID: 11400000, guid: 37d7eaf4553567e4887965428365caeb, type: 2}
+  - {fileID: 11400000, guid: ef88e4acec4b4d74484b88b4e292cb05, type: 2}
+  _veuveNoireDatas: []
+  _chienDatas: []
+  _chatDatas: []
+  _tigreDatas: []
+  _scorpionDatas: []
+  _poissonRougeDatas: []
+  _poissonGlobeDatas: []
+  _lezardDatas: []
+  _vipereDatas: []
+  _cobraRoyalDatas: []
+  _tortueDatas: []
 --- !u!4 &1799144999
 Transform:
   m_ObjectHideFlags: 0

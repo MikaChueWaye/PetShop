@@ -1,4 +1,4 @@
-﻿using static PetShopApp.Animal;
+﻿using static PetShopApp.BaseAnimal;
 
 public class NotValidFoodTypeException : AnimalException
 {

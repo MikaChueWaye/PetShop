@@ -2,12 +2,18 @@ using PetShopApp;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static PetShopApp.Animal;
+using static PetShopApp.BaseAnimal;
 using static Venom;
 using Random = System.Random;
 
 public class PetShop : MonoBehaviour
 {
+
+    /* TO DO
+     * Propager les changements sur l'ensemble des classes
+     * Ajouter une var bool "possède une toile" sur les araignées (création de scriptable object, ...)
+     */
+
     [SerializeField] private int _nbMygales = 10;
     [SerializeField] private int _nbVeuveNoires = 10;
     [SerializeField] private int _nbChiens = 10;
@@ -21,14 +27,28 @@ public class PetShop : MonoBehaviour
     [SerializeField] private int _nbCobraRoyal = 10;
     [SerializeField] private int _nbTortues = 10;
 
+    [SerializeField] private MygaleData[] _mygaleDatas;
+    [SerializeField] private VeuveNoireData[] _veuveNoireDatas;
+    [SerializeField] private ChienData[] _chienDatas;
+    [SerializeField] private ChatData[] _chatDatas;
+    [SerializeField] private TigreData[] _tigreDatas;
+    [SerializeField] private ScorpionData[] _scorpionDatas;
+    [SerializeField] private PoissonRougeData[] _poissonRougeDatas;
+    [SerializeField] private PoissonGlobeData[] _poissonGlobeDatas;
+    [SerializeField] private LezardData[] _lezardDatas;
+    [SerializeField] private VipereData[] _vipereDatas;
+    [SerializeField] private CobraRoyalData[] _cobraRoyalDatas;
+    [SerializeField] private TortueData[] _tortueDatas;
+
+
     private string _nomMagasin;
     private string _adresse;
     private float _longueur;
     private float _largeur;
 
-    private List<Animal> _listeAnimaux = new();
+    private List<BaseAnimal> _listeAnimaux = new();
 
-    private List<Animal> _listeAnimauxNonNourris = new();
+    private List<BaseAnimal> _listeAnimauxNonNourris = new();
 
     private List<FoodType> _foodTypeList = new();
 
@@ -56,146 +76,78 @@ public class PetShop : MonoBehaviour
     {
         CreateRandomAnimalery();
 
-        InitializeHungryAnimals();
+        //InitializeHungryAnimals();
 
-        InitializeAntiVenomStock();
+        //InitializeAntiVenomStock();
 
-        _foodTypeList = FoodTypeList();
+        // _foodTypeList = FoodTypeList();
 
-        Debug.Log($"nb antivenin minimal: {_nbAntiVeninMinimal}");
+        //Debug.Log($"nb antivenin minimal: {_nbAntiVeninMinimal}");
 
-        //FeedAll();
+        //for (int i = 0; i < _mygaleDatas.Length; i++)
+        //{
+        //    Mygale lMygale = new(_mygaleDatas[i]);
+        //    _listeAnimaux.Add(lMygale);
+        //    Debug.Log(lMygale) ;
+        //}
 
-        //OrderFood();
+        //_testMygale.Init();
+        //_testMygale2.Init();
 
-        //Inventory();
-
-        //Debug.Log($"-----Stock avant manger-----\n{StockNourritureToString()}");
-
-        //FeedAll();
-
-        //Debug.Log($"-----Stock après manger-----\n{StockNourritureToString()}");
-
+        //Debug.Log(_testMygale.Nom);
+        //Debug.Log(_testMygale2.Nom);
 
     }
 
     public void CreateRandomAnimalery()
     {
-        //Arachne
-        Mygale lMygale;
-        VeuveNoire lVeuveNoire;
+        //for (int i = 0; i < _nbMygales; i++)
+        //{
+        //    Mygale lMygale = new(_mygaleDatas[RAND.Next(_mygaleDatas.Length)]);
+        //    _listeAnimaux.Add(lMygale);
+        //}
+        //for (int i = 0; i < _nbVeuveNoires; i++)
+        //{
+        //    VeuveNoire lVeuveNoire = new(_veuveNoireDatas[RAND.Next(_veuveNoireDatas.Length)]);
+        //    _listeAnimaux.Add(lVeuveNoire);
+        //}
+        //for (int i = 0; i < _nbChiens; i++)
+        //{
+        //    Chien lChien = new(_chienDatas[RAND.Next(_chienDatas.Length)]);
+        //    _listeAnimaux.Add(lChien);
+        //}
+        //for (int i = 0; i < _nbChats; i++)
+        //{
+        //    Chat lChat = new(_chatDatas[RAND.Next(_chatDatas.Length)]);
+        //    _listeAnimaux.Add(lChat);
+        //}
+        //for (int i = 0; i < _nbTigres; i++)
+        //{
+        //    Tigre lTigre = new(_tigreDatas[RAND.Next(_tigreDatas.Length)]);
+        //    _listeAnimaux.Add(lTigre);
+        //}
+        //for (int i = 0; i < _nbScorpions; i++)
+        //{
+        //    Scorpion lScorpion = new(_scorpionDatas[RAND.Next(_scorpionDatas.Length)]);
+        //    _listeAnimaux.Add(lScorpion);
+        //}
 
-        //Canin
-        Chien lChien;
 
-        //Felin
-        Chat lChat;
-        Tigre lTigre;
-
-        //Insecte
-        Scorpion lScorpion;
-
-        //Poisson
-        PoissonRouge lPoissonRouge;
-        PoissonGlobe lPoissonGlobe;
-
-        //Reptile
-        Lezard lLezard;
-        CobraRoyal lCobraRoyal;
-        Vipere lVipere;
-        Tortue lTortue;
-
-        int lNbMygales = _rand.Next(_nbMygales);
-        int lNbVeuveNoires = _rand.Next(_nbVeuveNoires);
-        int lNbChiens = _rand.Next(_nbChiens);
-        int lNbChats = _rand.Next(_nbChats);
-        int lNbTigres = _rand.Next(_nbTigres);
-        int lNbScorpions = _rand.Next(_nbScorpions);
-        int lNbPoissonRouges = _rand.Next(_nbPoissonRouges);
-        int lNbPoissonGlobes = _rand.Next(_nbPoissonGlobes);
-        int lNbLezards = _rand.Next(_nbLezards);
-        int lNbViperes = _rand.Next(_nbViperes);
-        int lNbCobraRoyals = _rand.Next(_nbCobraRoyal);
-        int lNbTortues = _rand.Next(_nbTortues);
-
-        //Création aléatoire de:
-        //Arachnes
-        for (int i = 0; i < lNbMygales; i++)
-        {
-            lMygale = new Mygale(Names.RandomArachnidName());
-            _listeAnimaux.Add(lMygale);
-        }
-        for (int i = 0; i < lNbVeuveNoires; i++)
-        {
-            lVeuveNoire = new VeuveNoire(Names.RandomArachnidName());
-            _listeAnimaux.Add(lVeuveNoire);
-        }
-
-        //Canins
-        for (int i = 0; i < lNbChiens; i++)
-        {
-            lChien = new Chien(Names.RandomCanineName());
-            _listeAnimaux.Add(lChien);
-        }
-
-        //Felins
-        for (int i = 0; i < lNbChats; i++)
-        {
-            lChat = new Chat(Names.RandomFelineName());
-            _listeAnimaux.Add(lChat);
-        }
-        for (int i = 0; i < lNbTigres; i++)
-        {
-            lTigre = new Tigre(Names.RandomFelineName());
-            _listeAnimaux.Add(lTigre);
-        }
-
-        //Insectes
-        for (int i = 0; i < lNbScorpions; i++)
-        {
-            lScorpion = new Scorpion(Names.RandomInsectName());
-            _listeAnimaux.Add(lScorpion);
-        }
-
-        //Poissons
-        for (int i = 0; i < lNbPoissonRouges; i++)
-        {
-            lPoissonRouge = new PoissonRouge(Names.RandomFishName());
-            _listeAnimaux.Add(lPoissonRouge);
-        }
-        for (int i = 0; i < lNbPoissonGlobes; i++)
-        {
-            lPoissonGlobe = new PoissonGlobe(Names.RandomFishName());
-            _listeAnimaux.Add(lPoissonGlobe);
-        }
-
-        //Reptiles
-        for (int i = 0; i < lNbLezards; i++)
-        {
-            lLezard = new Lezard(Names.RandomReptileName());
-            _listeAnimaux.Add(lLezard);
-        }
-        for (int i = 0; i < lNbViperes; i++)
-        {
-            lVipere = new Vipere(Names.RandomReptileName());
-            _listeAnimaux.Add(lVipere);
-        }
-        for (int i = 0; i < lNbCobraRoyals; i++)
-        {
-            lCobraRoyal = new CobraRoyal(Names.RandomReptileName());
-            _listeAnimaux.Add(lCobraRoyal);
-        }
-        for (int i = 0; i < lNbTortues; i++)
-        {
-            lTortue = new Tortue(Names.RandomReptileName());
-            _listeAnimaux.Add(lTortue);
-        }
     }
+
+    public T CreateRandomAnimal<T, U>(U[] pDatas) where T : Animal<U> where U : AnimalData
+    {
+        //U lAnimalData = pDatas[RAND.Next(pDatas.Length)];
+        //Animal<AnimalData> lAnimal = new(lAnimalData);
+        //return lAnimal;
+        return null;
+    }
+
 
     public void Inventory()
     {
         string lListe = $"-----PET SHOP-----\nListe d'animaux :\n{_listeAnimaux.Count} animaux dans l'animalerie :\n";
-        foreach (Animal lAnimal in _listeAnimaux)
+        foreach (BaseAnimal lAnimal in _listeAnimaux)
         {
             lListe += $"{lAnimal}\n\n";
         }
@@ -235,7 +187,7 @@ public class PetShop : MonoBehaviour
     public List<FoodType> FoodTypeList()
     {
         List<FoodType> lFoodTypeList = new();
-        foreach (Animal lAnimal in _listeAnimaux)
+        foreach (BaseAnimal lAnimal in _listeAnimaux)
         {
             foreach (FoodType lFoodType in lAnimal.RegimeAlimentaire.GetFlags())
             {
@@ -282,7 +234,7 @@ public class PetShop : MonoBehaviour
     {
         int lNbRegimes = 0;
         float lQtteNourritureRegime = 0;
-        foreach (Animal lAnimal in _listeAnimauxNonNourris)
+        foreach (BaseAnimal lAnimal in _listeAnimauxNonNourris)
         {
             lNbRegimes = lAnimal.RegimeAlimentaire.GetSetBitCount();
             lQtteNourritureRegime = lAnimal.QtteMaxNourriture / lNbRegimes;
@@ -293,13 +245,13 @@ public class PetShop : MonoBehaviour
 
     public void TalkAll()
     {
-        foreach (Animal lAnimal in _listeAnimaux)
+        foreach (BaseAnimal lAnimal in _listeAnimaux)
         {
             Debug.Log(lAnimal.Talk);
         }
     }
 
-    public void Feed(Animal pAnimal, float pQtteNourriture)
+    public void Feed(BaseAnimal pAnimal, float pQtteNourriture)
     {
         foreach(FoodType lFoodType in pAnimal.RegimeAlimentaire.GetFlags())
         {
@@ -359,7 +311,7 @@ public class PetShop : MonoBehaviour
     public float NbNourritureACommander(FoodType pNourriture)
     {
         float lQtteACommander = 0;
-        foreach (Animal lAnimal in _listeAnimaux)
+        foreach (BaseAnimal lAnimal in _listeAnimaux)
         {
             if ((lAnimal.RegimeAlimentaire & pNourriture) > 0)
             {
@@ -367,25 +319,6 @@ public class PetShop : MonoBehaviour
             }
         }
         return lQtteACommander * 7;
-    }
-
-    public void Test()
-    {
-        Chien lChien = new Chien("toutou");
-        _listeAnimaux.Add(lChien);
-        //Debug.Log($"Régime de toutou : {lChien.RegimeAlimentaire}");
-        Debug.Log($"-----Stock avant manger-----\n{StockNourritureToString()}");
-
-        int lNbRegimes = lChien.RegimeAlimentaire.GetSetBitCount();
-        float lQtteNourritureRegime = lChien.QtteMaxNourriture / lNbRegimes;
-
-        Feed(lChien, lQtteNourritureRegime);
-
-        OrderFood();
-
-        Feed(lChien, lQtteNourritureRegime);
-
-        Debug.Log($"-----Stock après manger-----\n{StockNourritureToString()}");
     }
 
     public string StockNourritureToString()
@@ -436,7 +369,7 @@ public class PetShop : MonoBehaviour
     public void PassDay()
     {
         _listeAnimauxNonNourris.Clear();
-        foreach (Animal lAnimal in _listeAnimaux)
+        foreach (BaseAnimal lAnimal in _listeAnimaux)
         {
             lAnimal.Starve();
             if (lAnimal.Faim)
@@ -450,7 +383,7 @@ public class PetShop : MonoBehaviour
     public void InitializeHungryAnimals()
     {
         _listeAnimauxNonNourris.Clear();
-        foreach (Animal lAnimal in _listeAnimaux)
+        foreach (BaseAnimal lAnimal in _listeAnimaux)
         {
             if (lAnimal.Faim)
             {
@@ -533,7 +466,7 @@ public class PetShop : MonoBehaviour
 
     public void InitializeAntiVenomStock()
     {
-        foreach(Animal lAnimal in _listeAnimaux)
+        foreach(BaseAnimal lAnimal in _listeAnimaux)
         {
             if (lAnimal is IVenomous)
             {
@@ -622,7 +555,7 @@ public class PetShop : MonoBehaviour
 
                 case "w":
                     string lListeAnimauxNonNourris = $"Liste des animaux non nourris:\n\n";
-                    foreach (Animal lAnimal in _listeAnimauxNonNourris)
+                    foreach (BaseAnimal lAnimal in _listeAnimauxNonNourris)
                     {
                         lListeAnimauxNonNourris += $"{lAnimal}\n";
                     }

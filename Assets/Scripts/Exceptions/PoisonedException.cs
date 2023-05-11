@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using static Venom;
 
 public class PoisonedException : AnimalException
@@ -15,6 +16,7 @@ public class PoisonedException : AnimalException
     {
         _antiVenom = pAntiVenom;
         _specieVenomDangerosity = pVenomDangerosity;
+        Debug.LogWarning(Message);
     }
 
     

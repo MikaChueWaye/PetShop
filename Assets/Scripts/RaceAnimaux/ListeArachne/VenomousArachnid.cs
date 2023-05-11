@@ -4,34 +4,42 @@ using static Venom;
 namespace PetShopApp
 
 {
-    public abstract class VenomousArachnid : Arachne, IVenomous
+    public abstract class VenomousArachnid<T> : Arachne<T>, IVenomous where T: VenomousArachneData
     {
-
-        public VenomousArachnid(string pNom):base(pNom)
+        public VenomousArachnid(T pData) : base(pData)
         {
+
         }
 
-        public override TypeMorsure Mordre=>TypeMorsure.Morsure_venimeuse;
-        public abstract VenomDangerosity Dangerosity { get; }
-        public abstract AntiVenom EffectiveAntiVenom { get; }
-        public abstract Aggressivity SpeciesAggressivity { get; }
-        public bool Bite()
-        {
-            int lProbability = RAND.Next(100);
-            if (lProbability <= (int)SpeciesAggressivity)
-            {
-                Debug.Log($"{_nom} a mordu le soigneur");
-                return true;
-            }
-            else return false;
-        }
+        public VenomDangerosity Dangerosity => _data.Dangerosity;
+        public AntiVenom EffectiveAntiVenom => _data.EffectiveAntiVenom;
+        public Aggressivity SpeciesAggressivity => _data.SpeciesAggressivity;
+        public bool Bite() => Venom.Bite(RAND, _data.SpeciesAggressivity);
         public override void Nourrir(FoodType pFoodType, float pQtteNourriture)
         {
             if (Bite())
             {
-                throw new PoisonedException(_nom, EffectiveAntiVenom, Dangerosity);
+                throw new PoisonedException(Nom, EffectiveAntiVenom, Dangerosity);
             }
             base.Nourrir(pFoodType, pQtteNourriture);
         }
+    }
+
+    public class Mygale : VenomousArachnid<MygaleData>
+    {
+        public Mygale(MygaleData pData) : base(pData)
+        {
+
+        }
+
+    }
+
+    public class VeuveNoire : VenomousArachnid<VeuveNoireData>
+    {
+        public VeuveNoire(VeuveNoireData pData) : base(pData)
+        {
+
+        }
+
     }
 }

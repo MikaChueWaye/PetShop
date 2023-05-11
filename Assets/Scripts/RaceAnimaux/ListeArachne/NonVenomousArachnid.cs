@@ -1,11 +1,10 @@
 namespace PetShopApp
 {
-    public abstract class NonVenomousArachnid : Arachne
+    public class NonVenomousArachnid : Arachne<NonVenomousAnimalData>
     {
-        public NonVenomousArachnid(string pNom) : base(pNom)
+        public NonVenomousArachnid(NonVenomousAnimalData pData) : base(pData)
         {
         }
 
-        public override TypeMorsure Mordre => TypeMorsure.Morsure_inoffensive;
     }
 }

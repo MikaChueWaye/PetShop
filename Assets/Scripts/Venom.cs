@@ -1,6 +1,8 @@
 ﻿using System;
+using UnityEngine;
+using Random = System.Random;
 
-public class Venom
+public static class Venom
 {
     public enum VenomDangerosity
     {
@@ -28,5 +30,11 @@ public class Venom
         Agressif = 5,
         TresAgressif = 10
     };
+
+    public static bool Bite(Random pRandom, Aggressivity pSpeciesAggressivity)
+    {
+        int lProbability = pRandom.Next(100);
+        return lProbability <= (int)pSpeciesAggressivity;
+    }
 
 }

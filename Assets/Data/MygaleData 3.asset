@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c53b39694df8845bbd136217d5d6d1, type: 3}
+  m_Name: MygaleData 3
+  m_EditorClassIdentifier: 
+  _name: Olive
+  _poids: 0.25
+  _age: 1
+  _regimeAlimentaire: 24
+  _race: 0
+  _talk: . . .
+  _morsure: 0
+  _dangerosity: 2
+  _effectiveAntiVenom: 161
+  _speciesAggressivity: 1
+  _tisseToile: 1

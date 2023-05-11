@@ -1,16 +1,10 @@
 namespace PetShopApp
 {
-    public abstract class Arachne : Animal
+    public abstract class Arachne<T> : Animal<T> where T : AnimalData
     {
-        public override float QtteMaxNourriturePredefini => 200;
-        public override int AgeMax => 5;
-        public override float PoidsMax => 0.5f;
-        public override AnimalRace Race => AnimalRace.Arachne;
-
-        public Arachne(string pNom) : base(pNom)
+        public Arachne(T pData) : base(pData)
         {
         }
 
-        public override string Talk => ". . .";
     }
 }

@@ -1,11 +1,16 @@
 namespace PetShopApp
 {
-    public abstract class NonVenomousFish : Poisson
+    public abstract class NonVenomousFish : Poisson<NonVenomousAnimalData>
     {
-        public NonVenomousFish(string pNom) : base(pNom)
+        public NonVenomousFish(NonVenomousAnimalData pData) : base(pData)
         {
         }
+    }
 
-        public override TypeMorsure Mordre => TypeMorsure.Morsure_inoffensive;
+    public class PoissonRouge : NonVenomousFish
+    {
+        public PoissonRouge(PoissonRougeData pData) : base(pData)
+        {
+        }
     }
 }
