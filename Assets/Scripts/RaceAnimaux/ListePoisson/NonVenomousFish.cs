@@ -1,16 +1,21 @@
 namespace PetShopApp
 {
-    public abstract class NonVenomousFish : Poisson<NonVenomousAnimalData>
+    public abstract class NonVenomousFish<T> : Poisson<T> where T : NonVenomousAnimalData
     {
-        public NonVenomousFish(NonVenomousAnimalData pData) : base(pData)
+        public NonVenomousFish(T pData) : base(pData)
         {
         }
+
+        public NonVenomousFish() { }
+
     }
 
-    public class PoissonRouge : NonVenomousFish
+    public class PoissonRouge : NonVenomousFish<PoissonRougeData>
     {
         public PoissonRouge(PoissonRougeData pData) : base(pData)
         {
         }
+        public PoissonRouge() { }
+
     }
 }

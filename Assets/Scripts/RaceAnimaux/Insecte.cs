@@ -5,5 +5,8 @@ namespace PetShopApp
         public Insecte(T pData) : base(pData)
         {
         }
+
+        public Insecte() { }
+
     }
 }

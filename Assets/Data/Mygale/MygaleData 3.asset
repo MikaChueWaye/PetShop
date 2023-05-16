@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69c53b39694df8845bbd136217d5d6d1, type: 3}
-  m_Name: MygaleData 2
+  m_Name: MygaleData 3
   m_EditorClassIdentifier: 
-  _name: Harry
-  _poids: 0.25
-  _age: 1
+  _name: Olive
+  _poids: 1271
+  _age: 13
   _regimeAlimentaire: 24
   _race: 0
   _talk: . . .
   _morsure: 0
+  _tisseToile: 1
   _dangerosity: 2
   _effectiveAntiVenom: 161
   _speciesAggressivity: 1
-  _tisseToile: 1

@@ -1,8 +1,8 @@
 namespace PetShopApp
 {
-    public class NonVenomousArachnid : Arachne<NonVenomousAnimalData>
+    public class NonVenomousArachnid<T> : Arachne<T> where T : NonVenomousAnimalData
     {
-        public NonVenomousArachnid(NonVenomousAnimalData pData) : base(pData)
+        public NonVenomousArachnid(T pData) : base(pData)
         {
         }
 

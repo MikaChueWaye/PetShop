@@ -244,33 +244,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c55d10adbcf84c4589a65ff62a4930d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nbMygales: 10
-  _nbVeuveNoires: 10
-  _nbChiens: 10
-  _nbChats: 10
-  _nbTigres: 10
-  _nbScorpions: 10
-  _nbPoissonRouges: 10
-  _nbPoissonGlobes: 10
-  _nbLezards: 10
-  _nbViperes: 10
-  _nbCobraRoyal: 10
-  _nbTortues: 10
-  _mygaleDatas:
-  - {fileID: 11400000, guid: 35de9f0da12dfe745b4b281e082527aa, type: 2}
-  - {fileID: 11400000, guid: 37d7eaf4553567e4887965428365caeb, type: 2}
-  - {fileID: 11400000, guid: ef88e4acec4b4d74484b88b4e292cb05, type: 2}
-  _veuveNoireDatas: []
-  _chienDatas: []
-  _chatDatas: []
-  _tigreDatas: []
-  _scorpionDatas: []
-  _poissonRougeDatas: []
-  _poissonGlobeDatas: []
-  _lezardDatas: []
-  _vipereDatas: []
-  _cobraRoyalDatas: []
-  _tortueDatas: []
+  _animaleryData:
+    List:
+    - List:
+      - {fileID: 11400000, guid: 7dd1d500ec0e69840b4ba7d1ca430941, type: 2}
+      - {fileID: 11400000, guid: 5dffdf0e6f69c3547869debaa4da9b30, type: 2}
+      - {fileID: 11400000, guid: 9d942b6e45e925d48a9d81f797bd669b, type: 2}
+      NbAnimaux: 1
+    - List:
+      - {fileID: 11400000, guid: 0bc6903f8444d674a8f0aa5ced6f4a60, type: 2}
+      - {fileID: 11400000, guid: 207c319381a7f4b498d0df962ea82217, type: 2}
+      - {fileID: 11400000, guid: 96fa5e5ab1159fc4d93494b7c25fd480, type: 2}
+      NbAnimaux: 2
+    - List:
+      - {fileID: 11400000, guid: 1b4649d710d495247b4e81365107662a, type: 2}
+      - {fileID: 11400000, guid: 77acd2bd226855141bbcc88762cc28fb, type: 2}
+      - {fileID: 11400000, guid: 9f6e10755e2171b41b646a0020b50395, type: 2}
+      - {fileID: 11400000, guid: 0caa5b0822cc2044e87fc225faba5690, type: 2}
+      NbAnimaux: 5
+    - List:
+      - {fileID: 11400000, guid: 35de9f0da12dfe745b4b281e082527aa, type: 2}
+      - {fileID: 11400000, guid: 37d7eaf4553567e4887965428365caeb, type: 2}
+      - {fileID: 11400000, guid: ef88e4acec4b4d74484b88b4e292cb05, type: 2}
+      NbAnimaux: 3
+    - List:
+      - {fileID: 11400000, guid: c98ca36528f41dc40bc01fde06a14d31, type: 2}
+      - {fileID: 11400000, guid: 4c2fe90fe7090744a909fce5a7d95d20, type: 2}
+      - {fileID: 11400000, guid: ca5d4a08fcda1ba458bdf06460755827, type: 2}
+      NbAnimaux: 4
+    - List:
+      - {fileID: 11400000, guid: 899c1970493178f49bb443b54e037c95, type: 2}
+      - {fileID: 11400000, guid: a85a87dfeabc17b4396cee97c3bdf5da, type: 2}
+      - {fileID: 11400000, guid: 38187860d20a82a42ba3f002dd94dfb0, type: 2}
+      NbAnimaux: 6
+    - List:
+      - {fileID: 11400000, guid: 2e4673e91ea14ea4998750b66eb12954, type: 2}
+      - {fileID: 11400000, guid: 7894e4cf0199af64c9258666f8fcee9a, type: 2}
+      - {fileID: 11400000, guid: 7320b3540338cbe4b92f0f0a6ae0e143, type: 2}
+      NbAnimaux: 7
+    - List: []
+      NbAnimaux: 5
 --- !u!4 &1799144999
 Transform:
   m_ObjectHideFlags: 0

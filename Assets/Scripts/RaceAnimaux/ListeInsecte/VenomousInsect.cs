@@ -9,12 +9,15 @@ namespace PetShopApp
         public VenomousInsect(T pData) : base(pData)
         {
         }
+        public VenomousInsect() { }
+
+
 
         public VenomDangerosity Dangerosity => _data.Dangerosity;
         public AntiVenom EffectiveAntiVenom => _data.EffectiveAntiVenom;
         public Aggressivity SpeciesAggressivity => _data.SpeciesAggressivity;
 
-        public bool Bite() => _data.Bite(RAND);
+        public bool Bite() => Venom.Bite(RAND, _data.SpeciesAggressivity);
 
         public override void Nourrir(FoodType pFoodType, float pQtteNourriture)
         {
@@ -31,5 +34,8 @@ namespace PetShopApp
         public Scorpion(ScorpionData pData) : base(pData)
         {
         }
+
+        public Scorpion() { }
+
     }
 }

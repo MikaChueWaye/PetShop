@@ -6,5 +6,7 @@ namespace PetShopApp
         {
         }
 
+        public Arachne() { }
+
     }
 }

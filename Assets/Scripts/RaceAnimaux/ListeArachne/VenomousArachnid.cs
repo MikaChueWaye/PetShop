@@ -11,6 +11,9 @@ namespace PetShopApp
 
         }
 
+        public VenomousArachnid() { }
+
+
         public VenomDangerosity Dangerosity => _data.Dangerosity;
         public AntiVenom EffectiveAntiVenom => _data.EffectiveAntiVenom;
         public Aggressivity SpeciesAggressivity => _data.SpeciesAggressivity;
@@ -32,6 +35,8 @@ namespace PetShopApp
 
         }
 
+        public Mygale() { }
+
     }
 
     public class VeuveNoire : VenomousArachnid<VeuveNoireData>
@@ -40,6 +45,7 @@ namespace PetShopApp
         {
 
         }
+        public VeuveNoire() { }
 
     }
 }

@@ -1,9 +1,12 @@
 namespace PetShopApp
 {
-    public abstract class Canin : Animal<NonVenomousAnimalData>
+    public abstract class Canin<T> : Animal<T> where T : NonVenomousAnimalData
     {
-        public Canin(NonVenomousAnimalData pData) : base(pData)
+        public Canin(T pData) : base(pData)
         {
         }
+
+        public Canin() { }
+
     }
 }

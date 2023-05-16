@@ -5,6 +5,7 @@ using UnityEngine;
 using static PetShopApp.BaseAnimal;
 using static Venom;
 using Random = System.Random;
+using System.Linq;
 
 public class PetShop : MonoBehaviour
 {
@@ -14,31 +15,34 @@ public class PetShop : MonoBehaviour
      * Ajouter une var bool "possède une toile" sur les araignées (création de scriptable object, ...)
      */
 
-    [SerializeField] private int _nbMygales = 10;
-    [SerializeField] private int _nbVeuveNoires = 10;
-    [SerializeField] private int _nbChiens = 10;
-    [SerializeField] private int _nbChats = 10;
-    [SerializeField] private int _nbTigres = 10;
-    [SerializeField] private int _nbScorpions = 10;
-    [SerializeField] private int _nbPoissonRouges = 10;
-    [SerializeField] private int _nbPoissonGlobes = 10;
-    [SerializeField] private int _nbLezards = 10;
-    [SerializeField] private int _nbViperes = 10;
-    [SerializeField] private int _nbCobraRoyal = 10;
-    [SerializeField] private int _nbTortues = 10;
+    //[SerializeField] private int _nbMygales = 10;
+    //[SerializeField] private int _nbVeuveNoires = 10;
+    //[SerializeField] private int _nbChiens = 10;
+    //[SerializeField] private int _nbChats = 10;
+    //[SerializeField] private int _nbTigres = 10;
+    //[SerializeField] private int _nbScorpions = 10;
+    //[SerializeField] private int _nbPoissonRouges = 10;
+    //[SerializeField] private int _nbPoissonGlobes = 10;
+    //[SerializeField] private int _nbLezards = 10;
+    //[SerializeField] private int _nbViperes = 10;
+    //[SerializeField] private int _nbCobraRoyal = 10;
+    //[SerializeField] private int _nbTortues = 10;
 
-    [SerializeField] private MygaleData[] _mygaleDatas;
-    [SerializeField] private VeuveNoireData[] _veuveNoireDatas;
-    [SerializeField] private ChienData[] _chienDatas;
-    [SerializeField] private ChatData[] _chatDatas;
-    [SerializeField] private TigreData[] _tigreDatas;
-    [SerializeField] private ScorpionData[] _scorpionDatas;
-    [SerializeField] private PoissonRougeData[] _poissonRougeDatas;
-    [SerializeField] private PoissonGlobeData[] _poissonGlobeDatas;
-    [SerializeField] private LezardData[] _lezardDatas;
-    [SerializeField] private VipereData[] _vipereDatas;
-    [SerializeField] private CobraRoyalData[] _cobraRoyalDatas;
-    [SerializeField] private TortueData[] _tortueDatas;
+    //[SerializeField] private MygaleData[] _mygaleDatas;
+    //[SerializeField] private VeuveNoireData[] _veuveNoireDatas;
+    //[SerializeField] private ChienData[] _chienDatas;
+    //[SerializeField] private ChatData[] _chatDatas;
+    //[SerializeField] private TigreData[] _tigreDatas;
+    //[SerializeField] private ScorpionData[] _scorpionDatas;
+    //[SerializeField] private PoissonRougeData[] _poissonRougeDatas;
+    //[SerializeField] private PoissonGlobeData[] _poissonGlobeDatas;
+    //[SerializeField] private LezardData[] _lezardDatas;
+    //[SerializeField] private VipereData[] _vipereDatas;
+    //[SerializeField] private CobraRoyalData[] _cobraRoyalDatas;
+    //[SerializeField] private TortueData[] _tortueDatas;
+
+    [Header("Data Animals")]
+    [SerializeField] private AnimaleryData _animaleryData;
 
 
     private string _nomMagasin;
@@ -63,6 +67,7 @@ public class PetShop : MonoBehaviour
     private Dictionary<AntiVenom, int> _listeAntiVeninACommander = new();
 
     private int _nbAntiVeninMinimal = 0;
+
 
     public string NomMagasin => _nomMagasin;
     public string Adresse => _adresse;
@@ -101,11 +106,54 @@ public class PetShop : MonoBehaviour
 
     public void CreateRandomAnimalery()
     {
-        //for (int i = 0; i < _nbMygales; i++)
-        //{
-        //    Mygale lMygale = new(_mygaleDatas[RAND.Next(_mygaleDatas.Length)]);
-        //    _listeAnimaux.Add(lMygale);
-        //}
+
+        foreach (AnimalToInstanciate lAnimals in _animaleryData.List)
+        {
+            if (lAnimals.List.Length == 0)
+            {
+                break;
+            }
+            switch (lAnimals.List[0])
+            {
+                case MygaleData:
+                    CreateRandomAnimals<Mygale, MygaleData>(lAnimals.List.Cast<MygaleData>().ToArray(), lAnimals.NbAnimaux);
+                    break;
+                case VeuveNoireData:
+                    CreateRandomAnimals<VeuveNoire, VeuveNoireData>(lAnimals.List.Cast<VeuveNoireData>().ToArray(), lAnimals.NbAnimaux);
+                    break;
+                case ChienData:
+                    CreateRandomAnimals<Chien, ChienData>(lAnimals.List.Cast<ChienData>().ToArray(), lAnimals.NbAnimaux);
+                    break;
+                case ChatData:
+                    CreateRandomAnimals<Chat, ChatData>(lAnimals.List.Cast<ChatData>().ToArray(), lAnimals.NbAnimaux);
+                    break;
+                case TigreData:
+                    CreateRandomAnimals<Tigre, TigreData>(lAnimals.List.Cast<TigreData>().ToArray(), lAnimals.NbAnimaux);
+                    break;
+                case ScorpionData:
+                    CreateRandomAnimals<Scorpion, ScorpionData>(lAnimals.List.Cast<ScorpionData>().ToArray(), lAnimals.NbAnimaux);
+                    break;
+                case PoissonRougeData:
+                    CreateRandomAnimals<PoissonRouge, PoissonRougeData>(lAnimals.List.Cast<PoissonRougeData>().ToArray(), lAnimals.NbAnimaux);
+                    break;
+                case PoissonGlobeData:
+                    CreateRandomAnimals<PoissonGlobe, PoissonGlobeData>(lAnimals.List.Cast<PoissonGlobeData>().ToArray(), lAnimals.NbAnimaux);
+                    break;
+                case VipereData:
+                    CreateRandomAnimals<Vipere, VipereData>(lAnimals.List.Cast<VipereData>().ToArray(), lAnimals.NbAnimaux);
+                    break;
+                case CobraRoyalData:
+                    CreateRandomAnimals<CobraRoyal, CobraRoyalData>(lAnimals.List.Cast<CobraRoyalData>().ToArray(), lAnimals.NbAnimaux);
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+
+
+
+
         //for (int i = 0; i < _nbVeuveNoires; i++)
         //{
         //    VeuveNoire lVeuveNoire = new(_veuveNoireDatas[RAND.Next(_veuveNoireDatas.Length)]);
@@ -135,13 +183,19 @@ public class PetShop : MonoBehaviour
 
     }
 
-    public T CreateRandomAnimal<T, U>(U[] pDatas) where T : Animal<U> where U : AnimalData
+    public void CreateRandomAnimals<T, U>(U[] pDatas, int pNombre) where T : Animal<U>, new() where U : AnimalData
     {
-        //U lAnimalData = pDatas[RAND.Next(pDatas.Length)];
-        //Animal<AnimalData> lAnimal = new(lAnimalData);
-        //return lAnimal;
-        return null;
+        for (int i = 0; i < pNombre; i++)
+        {
+            T lAnimal = new();
+            lAnimal.Init(pDatas[RAND.Next(pDatas.Length)]);
+            _listeAnimaux.Add(lAnimal);
+        }
     }
+
+ 
+
+
 
 
     public void Inventory()

@@ -63,11 +63,6 @@ namespace PetShopApp
         }
 
 
-        public BaseAnimal()
-        {
-
-        }
-
 
         public virtual void Nourrir(FoodType pFoodType, float pQtteNourriture)
         {

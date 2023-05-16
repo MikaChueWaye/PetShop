@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309c3e43dec12374990302f90f65c715, type: 3}
+  m_Name: VeuveNoireData 1
+  m_EditorClassIdentifier: 
+  _name: Matilda
+  _poids: 0.35
+  _age: 1
+  _regimeAlimentaire: 24
+  _race: 0
+  _talk: . . .
+  _morsure: 0
+  _tisseToile: 1
+  _dangerosity: 3
+  _effectiveAntiVenom: 33
+  _speciesAggressivity: 5

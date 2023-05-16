@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Object = UnityEngine.Object;
 public static class EnumExtensions
 {
     public static int GetSetBitCount(this Enum pEnum)

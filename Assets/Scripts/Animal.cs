@@ -16,6 +16,16 @@ namespace PetShopApp
 
         public Animal(T pData)
         {
+            Init(pData);
+        }
+
+        public Animal()
+        {
+            
+        }
+
+        public void Init(T pData)
+        {
             _data = pData;
             NiveauFaim = _data.NiveauFaimInitial;
         }

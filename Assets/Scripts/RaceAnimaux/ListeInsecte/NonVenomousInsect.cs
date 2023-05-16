@@ -1,9 +1,12 @@
 namespace PetShopApp
 {
-    public abstract class NonVenomousInsect : Insecte<NonVenomousAnimalData>
+    public abstract class NonVenomousInsect<T> : Insecte<T> where T : NonVenomousAnimalData
     {
-        protected NonVenomousInsect(NonVenomousAnimalData pData) : base(pData)
+        public NonVenomousInsect(T pData) : base(pData)
         {
         }
+
+        public NonVenomousInsect() { }
+
     }
 }
